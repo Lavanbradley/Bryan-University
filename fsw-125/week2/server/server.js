@@ -46,13 +46,7 @@ app.get('/actors', (req, res) => {
   res.send(actors)
  
 })
-// app.get('/actors/:year', (req, res) => {
-//   // res.send(actors)
-//   res.json(actors.filter((actor)=>{
-//     return actor.year
-//   }))
- 
-// })
+
 app.get('/dates', (req, res) => {
   res.send(dates)
  
@@ -61,3 +55,11 @@ app.get('/dates', (req, res) => {
 app.listen(PORT, () => {
   console.log(`App port started on port: ${PORT}`)
 })
+
+// app.get('/actors/:year', (req, res) => {
+//   // res.send(actors)
+//   res.json(actors.filter((actor)=>{
+//     return actor.year
+//   }))
+ 
+// })
