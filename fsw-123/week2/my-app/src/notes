@@ -1,0 +1,30 @@
+ {/* <Card>
+
+      <h1>Title 1</h1>
+      <h1>{item1.subTitle}</h1>
+      <h1>{item1.description}</h1>
+      </Card> */}
+      <Card/>
+     <div  style = {style1}>
+     <h1>Title 1</h1>
+      <h1>{item1.subTitle}</h1>
+      <h1>{item1.description}</h1>
+     </div>
+     
+      <div style = {style2}>
+      <h1>{item2.title}</h1>
+      <h1>{item2.subTitle}</h1>
+      <h1>{item2.description}</h1>
+      </div>
+      <div style = {style3}>
+      <h1>{item3.title}</h1>
+      <h1>{item3.subTitle}</h1>
+      <h1>{item3.description}</h1>
+      </div>
+      <div style = {style4}>
+      <h1>{item4.title}</h1>
+      <h1>{item4.subTitle}</h1>
+      <h1>{item4.description}</h1>
+      </div>
+      
+      <Card/>
