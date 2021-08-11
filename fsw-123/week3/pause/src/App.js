@@ -1,4 +1,5 @@
 import {useState} from "react"
+import DisplayGreeting from "./DisplayGreeting"
 // import './App.css';
 // import Car from './Car.js'
 
@@ -52,12 +53,19 @@ const [cars, setCars] = useState([
   }
 const carList = cars.map((car, index)=> <div key = {index}>{car.model} {car.brand}</div>)
 
+const [greeting, setGreeting] = useState("Good Morning")
+const changeGreeting = () => {
+  setGreeting("Good night")
+}
 
   return (
     <div className="App">
       <h3>My Cars</h3>
       <div>{carList}</div>
       <button onClick = {()=> changeCar("BMW", "323")}>Change Car</button>
+
+      <DisplayGreeting greeting = {greeting} />
+      <button onClick = {changeGreeting}>Change greeting</button>
     </div>
   );
 }

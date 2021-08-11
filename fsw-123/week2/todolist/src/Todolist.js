@@ -4,7 +4,7 @@ function TodoList({Todos}){
 
 
   return(
-      <h1>{Todos.map(item =>{
+      <h3>{Todos.map(item =>{
         return (
           <div>
             <input type="checkbox" />
@@ -12,7 +12,7 @@ function TodoList({Todos}){
           </div>
         )
       }
-        )}</h1>
+        )}</h3>
   )
 }
 export default TodoList;
