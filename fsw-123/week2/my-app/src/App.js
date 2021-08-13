@@ -47,10 +47,11 @@ const style4 = {
      <Card {...item1} style = {style1}/> 
      <Card {...item2} style = {style2}/> 
      <Card {...item3} style = {style3}/> 
+    
      <Card {...item4} style = {style4}/> 
 
   
-   
+     
     </div>
     
   );

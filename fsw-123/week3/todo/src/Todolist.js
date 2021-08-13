@@ -1,10 +1,11 @@
-function TodoList({todo, completeTodo, deleteTodo}){
+import { Todos } from "./Store";
+function TodoList({todos, completeTodo, deleteTodo}){
 
 
 
 
   return(
-      <h1>{todo.map(item =>{
+      <h1>{Todos.map(item =>{
         return (
           <div>
             <input type="checkbox" checked = {item.isCompleted} onChange= {(e) => completeTodo(item.id)} />
