@@ -46,6 +46,12 @@ bookRouter
     res.send('Resource successfully deleted!')
   })//DELETE one
 
-// .put()//PUT one 
+  .put('/:bookId', (req, res) => {
+    const bookId = req.params.bookId;
+    const bookIndex = books.findIndex(book => book._id === bookId);
+    const updatedBookResource = Object.assign(books[bookIndex], req.body)
+
+    res.send(`Resource successfully updated to ${updatedBookResource}`)
+  })//PUT one 
 
 module.exports = bookRouter;
