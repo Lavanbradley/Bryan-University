@@ -1,0 +1,9 @@
+.todo-title {
+    cursor: pointer;
+}
+
+.todo-title-completed {
+    cursor: pointer;
+    text-decoration: line-through;
+    text-decoration-color: firebrick;
+}
