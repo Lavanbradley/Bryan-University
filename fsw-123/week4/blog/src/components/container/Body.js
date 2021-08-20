@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Blog from '../pages/Blog'
+import Post from '../pages/Post'
 
 
 
@@ -12,12 +13,12 @@ function Body() {
   return (
 
     <div>
-      <h1>Body</h1>
+      
       <Switch>
    <Route path = "/about"><About/></Route>
    <Route path = "/contact"><Contact/></Route>
    <Route path = "/"><Blog/></Route>
-
+<Post/>
 
       </Switch>
     </div>
