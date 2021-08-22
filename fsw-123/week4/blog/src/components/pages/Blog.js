@@ -10,7 +10,7 @@ const blogList = data.map(data =>
   <p id = {`${data.key}`}>
     <Link to={`/post/${data.slug}`}>{data.title}</Link>
   </p>)
-
+console.log(blogList);
   return (
     <BrowserRouter>
     <div>

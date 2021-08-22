@@ -8,8 +8,8 @@ class Dice extends React.Component {
   constructor() {
     super()
     this.state = {
-      die0: 0,
-      die1: 0
+      die297: 0,
+      die298: 0
     }
     this.diceRoll = this.diceRoll.bind(this)
   }
@@ -17,17 +17,17 @@ class Dice extends React.Component {
 
   diceRoll() {
     console.log('rolled');
-    let d0 = [this.state.die0]
-    let d1 = [this.state.die1]
-    d0 = Math.floor(Math.random() * 6)
-    d1 = Math.floor(Math.random() * 6)
-    console.log(d0);
-    console.log(d1);
+    let d297 = [this.state.die297]
+    let d298 = [this.state.die298]
+    d297 = Math.floor(Math.random() * 6)
+    d298  = Math.floor(Math.random() * 6)
+    console.log(d297);
+    console.log(d298 );
     this.setState(prevState => {
       return {
 
-        die0: d0,
-        die1: d1
+        die297: d297,
+        die298: d298 
       }
 
     })
@@ -36,10 +36,11 @@ class Dice extends React.Component {
     return (
       <div>
 
-        <Die pips={this.state.die0} id='0' />
-        <Die pips={this.state.die1} id='1' />
+        <Die pips={this.state.die297}  />
+        <Die pips={this.state.die298}  />
         <div>
           <button onClick={this.diceRoll}>Roll Dice</button>
+          <p>You rolled: {this.state.die297 + this.state.die298}! </p>
         </div>
       </div>
     )

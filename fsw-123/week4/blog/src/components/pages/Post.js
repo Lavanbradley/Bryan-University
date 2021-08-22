@@ -2,10 +2,10 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Link, useParams } from 'react-router-dom'
 import { default as data } from '../data/posts.json'
 
-//function BlogPost() {
+function BlogPost() {
 
-//return <div>Now showing post {slug}</div>;
-//}
+return <div>Now showing post {slug}</div>;
+}
 
 function Post() {
 
@@ -17,19 +17,29 @@ function Post() {
     console.log('slug: ', slug)
 
     return data.find((post) => post.slug === slug)
-    //let content = data.find((post) => post.slug === slug)
-    //console.log('content: ', content)
+    let content = data.find((post) => post.slug === slug)
+    console.log('content: ', content)
+    
   }
 
   const blogList = data.map(data =>
     <p id={`${data.key}`}>
-      <Link to={`/post/${data.slug}`}>{post.content}</Link>
+      {post.content}
     </p>)
+    console.log(blogList.content);
   return (
     <div>
+      
       {blogList}
     </div>
   )
+}
+function Post(){
+  
+  <Route path= '/Post/:content'><Post/></Route>
+  const {content} =useParams();
+  return <h1>{content}</h1>
+  
 }
 
 export default Post
