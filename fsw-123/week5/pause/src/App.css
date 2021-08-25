@@ -1,15 +1,7 @@
 .App {
   text-align: center;
-  text-decoration: none;
-  /* background-color: gray; */
-  align-items: center;
-  width: 500px;
-  margin: 0 auto;
 }
-.appContainer {
-  align-items: center;
-  
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

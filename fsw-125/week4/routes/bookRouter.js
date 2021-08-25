@@ -12,8 +12,10 @@ let books = [
 ]
 //Routes
 bookRouter
-  .get('/', (req, res) => {
+  .get('/', (req, res, next) => {
     res.send(books)
+
+
   })//Get all
 
   .get('/:bookId', (req, res) => {

@@ -8,16 +8,21 @@ import Footer from './components/container/Footer'
 
 function App(props) {
   return (
+    <>
+  
+    <div className = 'appContainer'>
   <BrowserRouter>
     <div className="App">
      <br />
      <Header/>
-     <Body/>
+        <Body/>
      <Footer/>
      </div>
   
   
   </BrowserRouter>
+  </div>
+  </>
   );
 }
 

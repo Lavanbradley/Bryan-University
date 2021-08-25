@@ -1,9 +1,11 @@
 import React from 'react'
-
+import './Container.css'
 function Footer() {
   return (
-    <div>
-      <h2>Footer</h2>
+    <div className= 'footer'>
+      <span>Bryan-University</span>
+      <span>2021</span>
+      <span>Student: Lavan Bradley</span>
     </div>
   )
 }

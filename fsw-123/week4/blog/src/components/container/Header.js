@@ -8,11 +8,11 @@ import React from 'react'
 function Header() {
   return (
   <div className= 'header'>
-    <Link to= '/Blog'>Blog</Link>
+    <Link className = 'headerLinks' to= '/Blog'>Blog</Link>
     
-    <Link to= '/About'>About</Link>
+    <Link className = 'headerLinks' to= '/About'>About</Link>
    
-    <Link to= '/Contact'>Contact</Link>
+    <Link className = 'headerLinks' to= '/Contact'>Contact</Link>
   </div>
   )
 }

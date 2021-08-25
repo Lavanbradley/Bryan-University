@@ -1,9 +1,13 @@
-import CoinTossCounter from './CoinTossCounter';
-import './App.css';
 
+import './App.css';
+import Test from './Test';
 function App() {
   return (
-    <CoinTossCounter/>
+<div>
+<Test/>
+
+</div>
+
   );
 }
 

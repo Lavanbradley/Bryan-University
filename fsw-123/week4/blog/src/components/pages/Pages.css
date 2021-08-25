@@ -1,0 +1,43 @@
+.postTitle {
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 900;
+}
+.postContent {
+  color: black;
+  text-align: center;
+}
+.aboutMessage{
+  background-color: grey;
+}
+.contactInfo{
+  background-color: grey;
+}
+.aboutH2 {
+  text-decoration: underline;
+}
+.pageTitle {
+  text-decoration: underline;
+}
+.postDiv {
+  align-items: center;
+}
+.blogTitle {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.blogTitle:hover {
+  font-size: larger;
+}
+.contact {
+  margin-top: 200px;
+
+}
+
+
+.contact span {
+  justify-content: space-between;
+  margin: 10px;
+}
