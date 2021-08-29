@@ -21,12 +21,12 @@ function TodoForm(props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}  >
+      <form onSubmit={handleSubmit} >
         <input type="text"
           placeholder="Add a todo"
           value={input} name="text"
           onChange={handleChange}
-         
+
         />
         <button >Add todo</button>
 

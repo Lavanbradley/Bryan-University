@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import ReactDOM from 'react-dom'
 import "./App.css"
 import TodoList from "../components/TodoList"
 import { listoftodos } from '../data/store'
@@ -32,22 +31,18 @@ function App() {
 
   const addTodo = text => {
     if (!text.text || /^\s*$/.test(text.text)) {
-
-      alert(' Todo form is empty')
-      return 
-        
-      
-}
-const newTodos = [text, ...todoItems]
-setTodos(newTodos)
+      return
+    }
+    const newTodos = [text, ...todoItems]
+    setTodos(newTodos)
   }
 
-return (
-  <div>
-    <TodoForm addTodo={addTodo} />
-    <TodoList data={todoItems} completeTodo={completeTodo} deleteTodo={deleteTodo} />
-  </div>
-)
+  return (
+    <div>
+      <TodoForm addTodo={addTodo} />
+      <TodoList data={todoItems} completeTodo={completeTodo} deleteTodo={deleteTodo} />
+    </div>
+  )
 }
 
 export default App
