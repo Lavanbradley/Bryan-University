@@ -32,7 +32,7 @@ function App() {
 
   const addTodo = text => {
     if (!text.text || /^\s*$/.test(text.text)) {
-
+      
       alert(' Todo form is empty')
       return 
         
