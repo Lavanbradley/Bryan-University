@@ -1,0 +1,16 @@
+input {
+  color: rgb(139, 1, 1);
+  background-color: black;
+}
+button {
+  background-color: black;
+  color: rgb(139, 1, 1);
+}
+
+::placeholder {
+  color: rgb(139, 1, 1);
+  opacity: 1;
+}
+.killList {
+  color: white;
+}
