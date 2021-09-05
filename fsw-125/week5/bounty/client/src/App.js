@@ -49,13 +49,13 @@ function App() {
   }, [])
   
   
-  const killsMap = kills.map(kill =>  //Kills have everything in it. Getting data from state
+  const killsMap = kills.map((kill,index) =>  //Kills have everything in it. Getting data from state
     <ShowKills
     {...kill} //Spreading out all kills 
     
     deleteKill = {deleteKill} //Passing functions to ShowKills
     editKill = {editKill}
-    key = {kill._id}/>)
+    key = {index}/>)
   
   
   

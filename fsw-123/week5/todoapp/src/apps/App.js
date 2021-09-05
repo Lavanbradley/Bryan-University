@@ -37,10 +37,17 @@ function App() {
     setTodos(newTodos)
   }
 
+  const editTodo = (id, text) => {
+    const spreadTodos = [...todoItems];
+    const index = spreadTodos.findIndex(todo => todo.id === id)
+    spreadTodos[index].text = text;
+    setTodos(spreadTodos)
+  }
+
   return (
     <div>
       <TodoForm addTodo={addTodo} />
-      <TodoList data={todoItems} completeTodo={completeTodo} deleteTodo={deleteTodo} />
+      <TodoList data={todoItems} completeTodo={completeTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
     </div>
   )
 }

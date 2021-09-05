@@ -3,19 +3,24 @@ import React, { useState } from 'react'
 function Todo(props) {
 
   const [edit, setEdit] = useState(false)
+  const [todoText, setTodoText] = useState(props.todo.text)
 
-  const handleEdit = (e) => {
-    e.preventDefault();
+  const toggleEdit = () => {
+    setEdit(!edit)
+    setTodoText(props.todo.text)
+  }
+  const handleEdit = (e) =>{
+    setEdit(e.target.value)
   }
 
   const handleUpdate = (todoId, newValue) => {
     console.log('working');
+    props.editTodo(todoId, newValue)
+    toggleEdit()
     // setEdit(prev => prev.map(item=> (item.id === todoId ? newValue : item)))
   }
 
-  const toggleEdit = () => {
-    setEdit(!edit)
-  }
+
 
   console.log('edit mode: ', edit)
 
@@ -41,7 +46,7 @@ function Todo(props) {
 
           <div>
 
-            <input type="text" onChange={handleEdit} />
+            <input type="text" value={todoText} onChange={handleEdit} />
             <button onClick={() => toggleEdit()}>Cancel</button>
             <button onClick={() => handleUpdate()} >Update</button>
           </div>

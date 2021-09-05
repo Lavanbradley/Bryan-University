@@ -37,7 +37,7 @@ bookRouter
     newBook._id = uuidv4();
     books.push(newBook)
     console.log(books)
-    res.send(`Successfully added ${newBook.title} to the database`)
+    res.send(newBook)
   })//Post one
 
   .delete('/:bookId', (req, res) => {
