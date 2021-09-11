@@ -10,7 +10,7 @@ function App() {
 const getBooks = () => {
   axios.get('/books')
   .then(res => setBooks(res.data))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err.response.data.errMsg))
 }
 
 const addBooks = (newBook) => {

@@ -13,23 +13,28 @@ let books = [
 //Routes
 bookRouter
   .get('/', (req, res, next) => {
-    res.send(books)
+    res.status(200).send(books)
 
 
   })//Get all
 
-  .get('/:bookId', (req, res) => {
+  .get('/:bookId', (req, res, next) => {
     const bookId = req.params.bookId;
     const singularBook = books.find(book => book._id === bookId)
+    
+    if(!singularBook){
+      const error =  new Error('This item was not found')
+     return next(error)
+    }
 
-    res.send(singularBook)
+    res.status(200).send(singularBook)
   })//GET one
 
 
-  .get('/search/genre', (req, res) => {
+  .get('/search/genre', (req, res) => {  //localhost:9000/books/search/genre?genre=Philosophy
     const bookGenre = req.query.genre;
     const filteredBooks = books.filter(book => book.genre === bookGenre)
-    res.send(filteredBooks)
+    res.status(200).send(filteredBooks)
   })//GET some
 
   .post('/', (req, res) => {
@@ -37,7 +42,7 @@ bookRouter
     newBook._id = uuidv4();
     books.push(newBook)
     console.log(books)
-    res.send(newBook)
+    res.status(201).send(newBook)
   })//Post one
 
   .delete('/:bookId', (req, res) => {
@@ -53,7 +58,7 @@ bookRouter
     const bookIndex = books.findIndex(book => book._id === bookId);
     const updatedBookResource = Object.assign(books[bookIndex], req.body)
 
-    res.send(`Resource successfully updated to ${updatedBookResource}`)
+    res.status(201).send(`Resource successfully updated to ${updatedBookResource}`)
   })//PUT one 
 
 module.exports = bookRouter;

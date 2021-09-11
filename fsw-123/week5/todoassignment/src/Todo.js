@@ -40,29 +40,33 @@ const handleUpdate = (id, text) => {
      </div>
 
 
-      {!edit ? (
-        <div className = 'todoJs'>
-           <input
-       type = 'checkbox'
-       checked = {todo.isCompleted}
-       onChange = {() => completeTodo(todo.id)}
-       />
-          <label style = {completed} for= {todo.id}>{todo.text}</label>
-        </div>
-      ):(
-        <div>
-          <input type= 'text' value = {text}onChange= {handleEdit}/>
-        </div>
-      )}
-      {!edit ? (
-        <div>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          <button onClick={() => toggleEdit()}>Edit</button>
+     {!edit ? (
+        <div className='todoJs'>
+          <input
+            type='checkbox'
+            checked={todo.isCompleted}
+            onChange={() => completeTodo(todo.id)}
+          />
+          <label style={completed} for={todo.id}>{todo.text}</label>
         </div>
       ) : (
         <div>
-          <button disabled = {error} onClick = {() => handleUpdate(todo.id, text)}>Submit</button>
-          <button onClick = {() => toggleEdit()}>Close</button>
+          <input type='text' value={text} onChange={handleEdit} />
+        </div>
+      )}
+      {!edit ? (!todo.isCompleted ?
+        (<div>
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button onClick={() => toggleEdit()}>Edit</button>
+        </div>) :
+        (<div>
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button disabled onClick={() => toggleEdit()}>Edit</button>
+        </div>)
+      ) : (
+        <div>
+          <button disabled={error} onClick={() => handleUpdate(todo.id, text)}>Submit</button>
+          <button onClick={() => toggleEdit()}>Close</button>
         </div>
       )}
     </div>

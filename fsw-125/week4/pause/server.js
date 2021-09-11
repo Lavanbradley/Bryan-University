@@ -20,7 +20,11 @@ app.use('/tv-shows', tvShowRouter)
 
 //GET all route
 
-
+// error handling
+app.use((err, req, res, next) =>{
+  console.log(err);
+  return res.send({errMsg: err.message})
+})
 
 
 

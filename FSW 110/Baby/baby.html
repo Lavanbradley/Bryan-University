@@ -7,29 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="baby">
+    <div id="baby"></div>
+    <p>Hello</p>
 
+    <script>
+      var baby = document.getElementById("baby");
 
+      function sum(a, b) {
+        return a + b;
+      }
 
-    </div>
-    <p>   </p>
-   
-   <script>
-
-var baby = document.getElementById("baby")
-
-
-
-function sum(a, b) {
-  return a + b
-}
-
-
-
-
-baby.innerHTML = sum(3, 8)
-
-
+      baby.innerHTML = sum(3, 8);
     </script>
     <script src="baby.js"></script>
   </body>
