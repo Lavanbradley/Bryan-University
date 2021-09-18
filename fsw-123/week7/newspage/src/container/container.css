@@ -1,0 +1,18 @@
+.footerLinks{
+  display: flex;
+ 
+  
+
+  font-size: 20px;
+}
+.footerLinks span {
+  margin: 70px;
+  
+}
+.footerLinks a{
+  text-decoration: none;
+  color: black;
+}
+.footerLinks a:hover{
+  font-size: medium;
+}

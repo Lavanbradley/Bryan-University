@@ -1,0 +1,18 @@
+.newsItem{
+width: auto;
+height: auto;
+padding: 20px;
+box-sizing: border-box;
+margin: 20px;
+
+}
+.newsImage{
+  width: 400px;
+}
+.container{
+ width: 100%;
+ height: auto;
+display: flex;
+
+justify-content: space-around;
+}

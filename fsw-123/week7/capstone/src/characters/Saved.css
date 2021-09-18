@@ -1,0 +1,16 @@
+.savedItems {
+  display: flex;
+  display: inline-block;
+  
+  margin: 10px;
+ 
+}
+
+.savedItems li{
+  list-style: none;
+}
+
+.showItems{
+  border: 2px solid white;
+  visibility: hidden;
+}

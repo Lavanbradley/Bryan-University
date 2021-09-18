@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-color: rgb(218, 2, 2);
+}
+.capstoneHeader{
+  text-decoration: underline;
+  color: white;
+}

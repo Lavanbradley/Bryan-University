@@ -1,0 +1,21 @@
+
+
+.inputArea{
+display: flex;
+flex-direction: column;
+width: 500px;
+
+}
+button{
+  width: 100px;
+  background-color: rgb(8, 204, 8);
+}
+.inputArea input{
+height: 30px;
+border-radius: 5px;
+}
+.newsBtn{
+  width: 500px;
+  height: 30px;
+  border-radius: 5px;
+}
