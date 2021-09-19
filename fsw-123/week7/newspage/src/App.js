@@ -19,7 +19,7 @@ import GetPopularNews from './popular/GetPopularNews';
 const App = () => {
   const [articles, setArticles] = useState([]);
   const [term, setTerm] = useState('everything')
-  const [isLoading, setIsLoading] = useState(true)
+  
   
 
 
@@ -33,7 +33,7 @@ const App = () => {
         const articles = await res.json()
         console.log(articles);
         setArticles(articles.response.docs)
-        setIsLoading(false)
+    
       } catch (error) {
         console.log(error);
       }
