@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+Documentation: This project does 3 separate get request the the the New York Times API. I have 3 components displaying articles to the page from the API. I also have a search component on the home page where you can search through the articles. My query is stored in state and I am passing that to the get request. I am also using browser router to navigate to the different components. 
