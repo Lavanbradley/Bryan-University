@@ -1,8 +1,8 @@
 
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import SearchForm from './search/SearchForm';
 import ShowArticles from './search/ShowArticles';
+import SearchForm from './search/SearchForm';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './container/Navbar';
 import ShowTopStories from './topStories/ShowTopStories';
@@ -24,24 +24,24 @@ const App = () => {
 
 
 
-  // useEffect(() => {
-  //   const fetchArticles = async () => {
-  //     try {
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
 
-  //       const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`
-  //       )
-  //       const articles = await res.json()
-  //       console.log(articles);
-  //       setArticles(articles.response.docs)
-  //       setIsLoading(false)
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
+        const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`
+        )
+        const articles = await res.json()
+        console.log(articles);
+        setArticles(articles.response.docs)
+        setIsLoading(false)
+      } catch (error) {
+        console.log(error);
+      }
 
-  //   }
+    }
 
-  //   fetchArticles();
-  // }, [term])
+    fetchArticles();
+  }, [term])
 
   
 
@@ -63,6 +63,7 @@ const App = () => {
 
     />
   })
+  
 
   return (
     <Router>

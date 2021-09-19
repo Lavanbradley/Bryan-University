@@ -5,22 +5,22 @@ function GetPopularNews() {
 
   const [articles, setArticles] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchArticles = async () => {
-  //     try{
-  //       const res = await fetch(`https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`
-  //       )
-  //       const articles = await res.json()
-  //       console.log(articles.results);
-  //       setArticles(articles.results)
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try{
+        const res = await fetch(`https://api.nytimes.com/svc/mostpopular/v2/shared/1/facebook.json?api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`
+        )
+        const articles = await res.json()
+        console.log(articles.results);
+        setArticles(articles.results)
 
-  //     }catch(error){
-  //       console.log(error);
+      }catch(error){
+        console.log(error);
 
-  //     }
-  //   }
-  //   fetchArticles()
-  // },[])
+      }
+    }
+    fetchArticles()
+  },[])
 
 const newsArticles = articles.map((article) => {
   return <ShowPopularNews
