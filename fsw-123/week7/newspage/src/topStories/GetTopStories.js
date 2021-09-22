@@ -13,7 +13,7 @@ function GetTopStories() {
   useEffect(() =>{
     const fetchArticles = async () => {
       try{
-        const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`
+        const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=qTMD0TblA7XarXAkxL1ZWtnc2DSvOtfY`
         )
         const articles = await res.json()
         console.log(articles);
