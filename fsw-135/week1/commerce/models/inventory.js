@@ -1,12 +1,17 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const inventory = new mongoose.Schema({
+const inventorySchema = new Schema({
+  category: {
+    type: String,
+    required: true,
+    enum: ['Technology', 'Toys', 'Clothing', 'Automobile', 'Groceries', 'Books', 'Phones']
+  },
   item: {
     type: String,
     required: true
   },
-  category: {
+  color: {
     type: String,
     required: true
   },
@@ -16,4 +21,4 @@ const inventory = new mongoose.Schema({
   }
 })
 
-
+module.exports = mongoose.model('Inventory', inventorySchema )

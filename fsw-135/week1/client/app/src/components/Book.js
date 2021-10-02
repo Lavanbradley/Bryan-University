@@ -1,7 +1,7 @@
 import BookFormHandler from './BookFormHandler';
 import './Book.css';
 import {useState} from 'react'
-function Book({deleteBook , editBook, title, genre, _id}) {
+function Book({deleteBook , editBook, title, genre, _id, author, release_year}) {
 
 const [editToggle, setEditToggle] = useState(false)
 
@@ -13,6 +13,8 @@ const [editToggle, setEditToggle] = useState(false)
        <>
       <h1>Title: {title}</h1>
       <p>Genre: {genre}</p>
+      <p>Author: {author}</p>
+      <p>Release Year: {release_year}</p>
       <button 
       onClick = {() => deleteBook(_id)}
        className = 'delete-btn'>
@@ -35,6 +37,8 @@ const [editToggle, setEditToggle] = useState(false)
         title={title}
         genre={genre}
         _id = {_id}
+        author = {author}
+        release_year = {release_year}
         btnText= 'Submit Edit'
         submit = {editBook}/>
 

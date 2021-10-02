@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema
-
+const Schema = mongoose.Schema
+const maxYear = new Date().getFullYear();
 const bookSchema = new Schema({
     title: {
         type: String,
@@ -8,12 +8,20 @@ const bookSchema = new Schema({
     },
     genre: {
         type: String,
+        enum: ['Fiction', 'Non-Fiction', 'Romance', 'Comedy', 'Adventure'],
         required: true
+        
     },
     author: {
         type: String,
         required: true
         
+    },
+    release_year: {
+        type: Number,
+        required: true,
+        min:1874,
+        max: maxYear
     }
 })
 

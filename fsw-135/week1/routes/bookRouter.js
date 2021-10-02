@@ -1,22 +1,25 @@
+
+
 const express = require('express')
 const bookRouter = express.Router();
-const { v4: uuidv4 } = require('uuid')
+const Book = require('../models/book.js')
 
-//Fake Data
-
-let books = [
-  { title: 'Devil And The White City1 testing', author: 'Erik Larson1', genre: 'science fiction', _id: uuidv4() },
-  { title: 'Devil And The White City2', author: 'Erik Larson2', genre: 'science fiction', _id: uuidv4() },
-  { title: 'Devil And The White City3', author: 'Erik Larson3', genre: 'science fiction', _id: uuidv4() },
-  { title: 'Devil And The White City4', author: 'Erik Larson4', genre: 'Philosophy', _id: uuidv4() },
-]
+ 
 //Routes
+
+//Get all
 bookRouter
   .get('/', (req, res, next) => {
-    res.status(200).send(books)
+    Book.find((err, books) =>{
+     if(err){
+       res.status(500)
+       return next(err)
+     }
+     return res.status(200).send(books)
+    })
 
 
-  })//Get all
+  })
 
   .get('/:bookId', (req, res, next) => {
     const bookId = req.params.bookId;
@@ -31,34 +34,50 @@ bookRouter
   })//GET one
 
 
-  .get('/search/genre', (req, res) => {  //localhost:9000/books/search/genre?genre=Philosophy
-    const bookGenre = req.query.genre;
-    const filteredBooks = books.filter(book => book.genre === bookGenre)
-    res.status(200).send(filteredBooks)
+  .get('/search/genre', (req, res, next) => {  //localhost:9000/books/search/genre?genre=Philosophy
+    Book.find({genre: req.query.genre}, (err, books)=>{
+      if(err){
+        res.status(500)
+        return next(err)
+      }
+      return res.status(201).send(books)
+    })
   })//GET some
 
-  .post('/', (req, res) => {
-    const newBook = req.body;
-    newBook._id = uuidv4();
-    books.push(newBook)
-    console.log(books)
-    res.status(201).send(newBook)
+  bookRouter.post('/', (req, res, next) => {
+    const newBook = new Book(req.body)
+    newBook.save((err, savedBook) =>{
+     if(err){
+       res.status(500)
+       return next(err)
+     }
+     return res.status(201).send(savedBook)
+    })
   })//Post one
 
-  .delete('/:bookId', (req, res) => {
-    const bookId = req.params.bookId;
-    const bookIndex = books.findIndex(book => book._id === bookId);
-
-    books.splice(bookIndex, 1)
-    res.send('Resource successfully deleted!')
+  .delete('/:bookId', (req, res, next) => {
+    Book.findOneAndDelete({_id: req.params.bookId},(err, deletedItem)=>{
+     if(err){
+       res.status(500)
+       return next(err)
+     }
+     return res.status(200).send(`Successfully deleted item ${deletedItem.title}`)
+    })
   })//DELETE one
 
-  .put('/:bookId', (req, res) => {
-    const bookId = req.params.bookId;
-    const bookIndex = books.findIndex(book => book._id === bookId);
-    const updatedBookResource = Object.assign(books[bookIndex], req.body)
-
-    res.status(201).send(`Resource successfully updated to ${updatedBookResource}`)
+  .put('/:bookId', (req, res, next) => {
+    Book.findOneAndUpdate(
+      {_id: req.params.bookId},
+      req.body,
+      {new: true},
+      (err, updatedBook) => {
+        if(err){
+          res.status(500)
+          return next(err)
+        }
+        return res.status(201).send(updatedBook)
+      }
+    )
   })//PUT one 
 
 module.exports = bookRouter;

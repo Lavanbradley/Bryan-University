@@ -7,7 +7,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 
 // const { v4: uuidv4 } = require('uuid')
-const bookRouter = require('../routes/bookRouter')
+// const bookRouter = require('../routes/bookRouter')
 const tvShowRouter = require('../routes/tvShowRouter')
 const PORT = 9000;
 
@@ -20,19 +20,25 @@ app.use(morgan('dev'));
 
 
 //Connect to DB
-mongoose.connect('mongodb://localhost:27017/booksdb',
-{
-  useNewUrlParser:true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-},
-() => console.log("Connected to the DB")
+// mongoose.connect('mongodb://localhost:27017/booksdb',
+// {
+//   useNewUrlParser:true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// },
+// () => console.log("Connected to the DB")
 
-)
+// )
+
+main().catch(err => console.log(err));
+async function main() {
+    await mongoose.connect('mongodb://localhost:27017/booksDB');
+    console.log("Connected to the DB")
+}
 
 //Routes
-app.use('/books', bookRouter)
+app.use('/books', require("../routes/bookRouter.js"))
 app.use('/tv-shows', tvShowRouter)
 
 //GET all route

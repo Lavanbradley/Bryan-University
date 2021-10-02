@@ -38,6 +38,16 @@ const editBook = (updates, bookId) => {
 
 }
 
+function handleFilter(e){
+  if(e.target.value === "reset"){
+    getBooks()
+  }else{
+    axios.get(`/books/search/genre?genre=${e.target.value}`)
+    .then(res => setBooks(res.data))
+    .catch(err => console.log(err))
+  }
+}
+
   useEffect(() => {
     getBooks()
   }, [])
@@ -54,8 +64,17 @@ const editBook = (updates, bookId) => {
       <BookFormHandler 
       btnText = 'Add Book'
       submit = {addBooks}/>
+        <h4>Filter by genre</h4>
+     <select onChange={handleFilter}>
+       <option value="reset">All Genres</option>
+       <option value="Fiction">Fiction</option>
+       <option value="Non-Fiction">Non-Fiction</option>
+       <option value="Romance">Romance</option>
+       <option value="Comedy">Comedy</option>
+       <option value="Adventure">Adventure</option>
+     </select>
       {booksList}
-     
+   
     </div>
   );
 }

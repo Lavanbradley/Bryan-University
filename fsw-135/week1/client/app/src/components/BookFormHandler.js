@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 
 
-function BookFormHandler({submit, btnText, title, genre, _id}) {
+function BookFormHandler({submit, btnText, title, genre, _id, author, release_year}) {
 
 const initialInputs = {title: title || '' , genre: genre || ''};
 const [inputs, setInputs] = useState(initialInputs)
@@ -33,12 +33,37 @@ submit(inputs, _id)
       placeholder = 'Title'      
       
       />
-      <input 
+      {/* <input 
       type="text"
       name = 'genre'
       value = {inputs.genre} 
       onChange = {handleChange }
       placeholder = 'Genre'
+      /> */}
+     
+
+     <select name="genre" onChange={handleChange}>
+       <option value="reset">Choose Genre</option>
+       <option value="Fiction">Fiction</option>
+       <option value="Non-Fiction">Non-Fiction</option>
+       <option value="Romance">Romance</option>
+       <option value="Comedy">Comedy</option>
+       <option value="Adventure">Adventure</option>
+     </select>
+
+      <input 
+      type="text"
+      name = 'author'
+      value = {inputs.author} 
+      onChange = {handleChange }
+      placeholder = 'Author'
+      />
+      <input 
+      type="number"
+      name = 'release_year'
+      value = {inputs.release_year} 
+      onChange = {handleChange }
+      placeholder = 'Release Year'
       />
       <button>Add Book</button>
     </form>
