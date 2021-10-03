@@ -16,3 +16,8 @@
 .footerLinks a:hover{
   font-size: medium;
 }
+@media only screen and (min-width: 375px){
+  .footerLinks{
+    display: none;
+  }
+}
