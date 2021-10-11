@@ -1,17 +1,17 @@
 
-import './App.css';
+import './index.css';
 import React, { useState, useEffect } from 'react'
 import ShowArticles from './search/ShowArticles';
 import SearchForm from './search/SearchForm';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './container/Navbar';
-import ShowTopStories from './topStories/ShowTopStories';
+
 import GetTopStories from './topStories/GetTopStories';
 import NewsLetterForm from './newsLetter/NewsLetterForm';
 import Account from './account/Account';
 
 import Footer from './container/Footer';
-import ShowPopularNews from './popular/ShowPopularNews';
+
 import GetPopularNews from './popular/GetPopularNews';
 
 

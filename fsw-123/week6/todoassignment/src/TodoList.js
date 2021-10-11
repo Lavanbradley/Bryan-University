@@ -1,5 +1,5 @@
 import Todo from "./Todo";
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { UserContext } from "./UserContext"
 function TodoList(){//Prop functions from app.js
 

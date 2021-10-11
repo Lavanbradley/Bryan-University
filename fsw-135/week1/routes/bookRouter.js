@@ -23,7 +23,7 @@ bookRouter
 
   .get('/:bookId', (req, res, next) => {
     const bookId = req.params.bookId;
-    const singularBook = books.find(book => book._id === bookId)
+    const singularBook = Book.find(book => book._id === bookId)
     
     if(!singularBook){
       const error =  new Error('This item was not found')
