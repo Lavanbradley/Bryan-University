@@ -28,8 +28,8 @@ const items2 = [
   { name: 'keyboard', price: 25 }
 ];
 
-const itemName = items.map((items2) => {
-  return items2.name
+const itemName = items.map((item) => {
+  return item.name
 })
 console.log(itemName);
 
@@ -44,8 +44,8 @@ const items3 = [
   { name: 'computer', price: 1000 },
   { name: 'keyboard', price: 25 }
 ];
-const foundItem = items.find((items3) => {
-  return items3.name === 'album';
+const foundItem = items.find((item) => {
+  return item.name === 'album';
 })
 console.log(foundItem)
 
@@ -62,8 +62,8 @@ const items4 = [
   { name: 'keyboard', price: 25 }
 ];
 
-items4.forEach((items4) => {
-  console.log(items4.price)
+items4.forEach((item) => {
+  console.log(item.price)
 })
 
 //Some return true or false
@@ -77,8 +77,8 @@ const items5 = [
   { name: 'keyboard', price: 25 }
 ];
 
-const hasInexpensiveItems = items5.some((items5) => {
-  return items5.price <= 100;
+const hasInexpensiveItems = items5.some((item) => {
+  return item.price <= 100;
 });
 console.log(hasInexpensiveItems);
 

@@ -11,6 +11,14 @@ const issueSchema =new Schema({
     type: String,
     required: true
   },
+  upVote:{
+   type: Number,
+   default: 0
+  },
+  downVote:{
+   type: Number,
+   default: 0
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",

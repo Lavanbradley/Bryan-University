@@ -4,11 +4,12 @@ function capitalizeNames(arr){
     const result2 = num.slice(0,1).toUpperCase();
     console.log(result2);
     const result3 = num.slice(1);
+    console.log(result3);
     return result2 + result3;
   });
   return result;
 };
-console.log(capitalizeNames(['janak','van', 'carina']));
+console.log(capitalizeNames(['janak','van', 'carina', 'sa']));
 
 
 //2C
