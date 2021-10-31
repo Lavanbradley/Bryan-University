@@ -71,5 +71,20 @@ issuesRouter
   )
 })
 
+.put('/upVote/:issueId', (req, res, next) => {  //PUT localhost:9000/books/like/615bce2c19212cf535704f28
+  Book.findOneAndUpdate(
+    {_id: req.params.issueId},
+    { $inc: { upVote: 1 } },
+    {new: true},
+    (err, updatedIssue) => {
+      if(err){
+        res.status(500)
+        return next(err)
+      }
+      return res.status(201).send(updatedIssue)
+    }
+  )
+})
+
 
 module.exports = issuesRouter

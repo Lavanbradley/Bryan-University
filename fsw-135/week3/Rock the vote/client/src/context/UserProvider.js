@@ -65,7 +65,9 @@ export default function UserProvider(props) {
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
-  }
+  }  
+  
+ 
   function getUserIssues() {
     userAxios.get('/api/issue/user')
       .then(res => {

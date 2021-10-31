@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <div className='navbar'>
       <Link className='links' to="/profile">Profile</Link>
-      <Link className='links' to="/issues">Issues</Link>
+      <Link className='links' to="/public">Public</Link>
       <button onClick={logout} className='logout links'>Logout</button>
     </div>
   )

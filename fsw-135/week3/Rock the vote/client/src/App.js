@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom'
 import Auth from './components/Auth'
 import Profile from './components/Profile';
+import Public from './components/Public';
 import Issues from './components/Issues'
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -27,8 +28,8 @@ export default function App() {
           render={() => <Profile />}
         />
         <Route 
-          path="/issues"
-          render={() => <Issues />}
+          path="/public"
+          render={() => <Public />}
         />
       </Switch>
     </div>
