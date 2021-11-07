@@ -5,6 +5,7 @@ function AuthForm(props) {
     handleChange, 
     handleSubmit, 
     btnText, 
+    errMsg,
     inputs: {
       username, 
       password
@@ -27,6 +28,7 @@ function AuthForm(props) {
       onChange={handleChange} 
       placeholder="Password"/>
     <button className = 'test'>{ btnText }</button>
+    <p style={{backgroundColor: "#c00000", color: "#ffffff", textAlign: "center"}}>{errMsg}</p>
   </form>
   </div>
   </div>

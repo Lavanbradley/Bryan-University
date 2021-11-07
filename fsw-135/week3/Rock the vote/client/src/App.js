@@ -8,6 +8,7 @@ import Issues from './components/Issues'
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import { UserContext } from './context/UserProvider';
+import ProtectedRoute from './components/ProtectedRoute';
 export default function App() {
   const {token} = useContext(UserContext)
   return (
@@ -23,13 +24,17 @@ export default function App() {
           exact path="/" 
           render={()=> token ? <Redirect to='/profile'/> : <Auth />}
         />
-        <Route 
+        <ProtectedRoute
           path="/profile"
-          render={() => <Profile />}
+          component={Profile}
+          redirectTo='/'
+          token={token}
         />
         <Route 
           path="/public"
-          render={() => <Public />}
+          component={Public}
+          redirectTo='/'
+          token={token}
         />
       </Switch>
     </div>

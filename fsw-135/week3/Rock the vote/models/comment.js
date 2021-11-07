@@ -3,10 +3,6 @@ const Schema = mongoose.Schema
 
 
 const commentSchema = new Schema({
-  title:{
-    type: String,
-    required: true
-  },
   comment:{
     type: String,
     required: true

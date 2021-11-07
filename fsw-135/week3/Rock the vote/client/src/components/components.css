@@ -5,6 +5,9 @@ input{
   height: 20px;
   border-radius: 20px;
 }
+button{
+  border-radius: 10px;
+}
 .header{
   background: url(https://bryanuniversity.instructure.com/courses/11682/files/899027/preview) no-repeat center center fixed; 
   
@@ -12,11 +15,11 @@ input{
   height: 500px;
   
 }
-.test{
+/* .test{
   border-radius: 20px;
   background-color: white;
 
-}
+} */
 
 .links{
   margin-right: 10px;
@@ -38,38 +41,14 @@ input{
   border: 1px solid black;
   margin: 10px;
   background-color: gray;
-}
-/* .auth-container > h1 {
-  font-size: 2em;
-  margin: 24px;
-}
-
-.auth-container > p {
-  margin: 16px;
-  text-decoration: underline;
+  width: 540px;
+  align-items: center;
+  margin-left: 470px;
 }
 
-.auth-container > form {
-  border: 1px solid rgba(90, 88, 88, 0.6);
-  padding: 20px;
-  border-radius: 5px;
-  background-color: rgb(177, 167, 167);
-
-  display: flex;
-  flex-direction: column;
+.comment{
+  border: 2px solid white;
+  width: 536px;
+  background-color: white;
+  text-align: center;
 }
-
-
-
-.auth-container > form > input {
-  margin: 16px 8px;
-  padding: 8px;
-  border-radius: 4px;
-  
-}
-
-.auth-container > form > button {
-  margin: 16px 8px;
-  padding: 8px;
-  border-radius: 4px;
-} */

@@ -1,11 +1,19 @@
 import React from 'react'
-
-function Comments() {
+import './components.css';
+function Comments(props) {
+  const { comment, _id} = props
   return (
-    <div>
-      <input type="text" />
+    <div className = "comment">
+      <span>{_id}</span>
+      <span>:</span>
+      <span>{comment}</span>
     </div>
   )
 }
 
 export default Comments
+
+
+
+
+

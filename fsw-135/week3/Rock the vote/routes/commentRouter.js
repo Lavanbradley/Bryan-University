@@ -15,11 +15,9 @@ commentsRouter
   })
 })
 
-.get("/:commentId", (req, res, next) => {
-  Comment.findOne(
-    { _id: req.params.commentId },
-    req.body,
-    { new: true },
+.get("/user/", (req, res, next) => {
+  Comment.find(
+    { user: req.user._id },
     (err, updatedComment) => {
       if(err){
         res.status(500)

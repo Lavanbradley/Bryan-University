@@ -5,7 +5,7 @@ import { UserContext } from '../context/UserProvider.js'
 const initInputs = { username: "", password: "" }
 
 export default function Auth(){
-  const { signUp, login} =useContext(UserContext)
+  const { signUp, login, errMsg, resetAuthErr} =useContext(UserContext)
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
 
@@ -30,6 +30,11 @@ export default function Auth(){
   login(inputs)
   }
 
+  function toggleForm(){
+    setToggle(prev => !prev)
+    resetAuthErr()
+  }
+
   return (
     <div className="auth-container">
       <h1>ROCK THE VOTE</h1>
@@ -41,8 +46,9 @@ export default function Auth(){
             handleSubmit={handleSignup}
             inputs={inputs}
             btnText="Sign up"
+            errMsg={errMsg}
           />
-          <p onClick={() => setToggle(prev => !prev)}>Login</p>
+          <p onClick={() => toggleForm()}>Login</p>
         </>
       :
         <>
@@ -51,8 +57,9 @@ export default function Auth(){
             handleSubmit={handleLogin}
             inputs={inputs}
             btnText="Login"
+            errMsg={errMsg}
           />
-          <p onClick={() => setToggle(prev => !prev)}>Sign up</p>
+          <p onClick={() => toggleForm()}>Sign up</p>
         </>
         
       }
