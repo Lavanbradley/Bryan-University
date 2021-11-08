@@ -11,7 +11,6 @@ const db =mysql.createConnection({
   database: '7Nov2021'
 });
 
-
 //Establish a connection
 
 db.connect((err) =>{
