@@ -15,14 +15,14 @@ export default function UserProvider(props) {
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: localStorage.getItem('token') || "",
     issues: [],
-
+    comments: [],
     errMsg: ''
 
   }
 
   const [userState, setuserState] = useState(initState)
 
-  function handleAuthErr(errMsg) {
+  function handleAuthErr(errMsg){
     setuserState(prevState => ({
       ...prevState,
       errMsg
@@ -30,9 +30,9 @@ export default function UserProvider(props) {
   }
 
 
-  function resetAuthErr() {
+  function resetAuthErr(){
     setuserState(prevState => ({
-      ...prevState,
+      ...prevState, 
       errMsg: ''
     }))
   }
@@ -58,7 +58,7 @@ export default function UserProvider(props) {
         localStorage.setItem('token', token)
         localStorage.setItem('user', JSON.stringify(user))
         getUserIssues()
-
+        getUserComments()
         setuserState(prevUserState => ({
           ...prevUserState,
           user,
@@ -87,7 +87,16 @@ export default function UserProvider(props) {
   }
 
 
-
+  function addComment(newComment,id) {
+    userAxios.post(`/api/issue/comment/${id}`, newComment)
+      .then(res => {
+        setuserState(prevState => ({
+          ...prevState,
+          comments: [...prevState.comments, res.data]
+        }))
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
   function addUpVote(newUpVote, id) {
     userAxios.put(`/api/issue/upVote/${id}`, newUpVote)
       .then(res => {
@@ -109,40 +118,41 @@ export default function UserProvider(props) {
   function getUserIssues() {
     userAxios.get('/api/issue/user')
       .then(res => {
-        var unsorted = [...res.data]
-        var sortedArray = unsorted.sort(function (a, b) {
-          
-          return b.upVote - a.upVote
-        })
         setuserState(prevState => ({
           ...prevState,
-          issues: sortedArray
+          issues: res.data
         }))
-        
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
+  function deleteUserIssues(deletedIssue) {
+    userAxios.delete('/api/issue/user', deletedIssue)
+      .then(res => {
+      
+      setuserState(prevState => ({
+        ...prevState,
+        issues: res.data
+      }))
+    })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
+
+
+  function getUserComments() {
+    userAxios.get('/api/comments/user')
+      .then(res => {
+        setuserState(prevState => ({
+          ...prevState,
+          comments: res.data
+        }))
       })
       .catch(err => console.log(err.response.data.errMsg))
   }
 
 
-  // function deleteUserIssues(id) {
-  //   userAxios.delete(`/api/issue/${id}`)
-  //     .then(res => {
-
-  //       setuserState(prevState => ({
-  //         ...prevState,
-  //         issues: res.data
-  //       }))
-  //     })
-  //     .catch(err => console.log(err.response.data.errMsg))
-  // }
-
-
-
-
-
 
   return (
-    <UserContext.Provider value={{ ...userState, signUp, login, logout, addIssue, addUpVote, addDownVote, resetAuthErr }}>
+    <UserContext.Provider value={{ ...userState, signUp, login, logout, addIssue, addComment, addUpVote, addDownVote, deleteUserIssues, resetAuthErr}}>
       {props.children}
     </UserContext.Provider>
   )

@@ -1,17 +1,19 @@
-input {
+
+
+input{
   width: 500px;
   height: 20px;
   border-radius: 20px;
 }
-button {
+button{
   border-radius: 10px;
 }
-.header {
-  background: url(https://bryanuniversity.instructure.com/courses/11682/files/899027/preview)
-    no-repeat center center fixed;
-
+.header{
+  background: url(https://bryanuniversity.instructure.com/courses/11682/files/899027/preview) no-repeat center center fixed; 
+  
   margin-top: 10px;
   height: 500px;
+  
 }
 /* .test{
   border-radius: 20px;
@@ -19,33 +21,32 @@ button {
 
 } */
 
-.links {
+.links{
   margin-right: 10px;
   float: right;
   font-size: larger;
   color: black;
   text-decoration: none;
+
 }
-.logout {
+.logout{
   border: none;
   background-color: white;
   float: left;
 }
-.links:hover {
+.links:hover{
   font-size: xx-large;
 }
-.issue-container {
+.issue-container{
   border: 1px solid black;
   margin: 10px;
   background-color: gray;
   width: 540px;
   align-items: center;
-  margin-left: 380px;
-  border-radius: 15px;
-  margin-bottom: 15px;
+  margin-left: 470px;
 }
 
-.comment {
+.comment{
   border: 2px solid white;
   width: 536px;
   background-color: white;
