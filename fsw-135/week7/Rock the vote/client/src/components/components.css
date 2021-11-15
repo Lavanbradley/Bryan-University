@@ -1,0 +1,57 @@
+
+input {
+  width: 500px;
+  height: 20px;
+  border-radius: 20px;
+}
+button {
+  border-radius: 10px;
+}
+.header {
+  background: url(https://bryanuniversity.instructure.com/courses/11682/files/899027/preview)
+    no-repeat center center fixed;
+
+  margin-top: 10px;
+  height: 500px;
+}
+/* .test{
+  border-radius: 20px;
+  background-color: white;
+
+} */
+
+.links {
+  margin-right: 10px;
+  float: right;
+  font-size: larger;
+  color: black;
+  text-decoration: none;
+}
+.logout {
+  border: none;
+  background-color: white;
+  float: left;
+}
+.links:hover {
+  font-size: xx-large;
+}
+
+.issue-container {
+  
+  border: 1px solid black;
+  margin: 10px;
+  /* background-color: gray; */
+  width: auto;
+  height: auto;
+  align-items: center;
+  /* margin-left: 380px;
+  border-radius: 15px;
+  margin-bottom: 15px; */
+}
+
+.comment {
+  border: 2px solid white;
+  /* width: 536px; */
+  background-color: white;
+  text-align: center;
+}
