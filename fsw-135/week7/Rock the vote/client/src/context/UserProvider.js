@@ -84,7 +84,10 @@ export default function UserProvider(props) {
         setuserState(prevState => ({
           ...prevState,
           issues: [...prevState.issues, res.data]
+         
         }))
+        getIssues()
+        getUserIssues()
       })
       .catch(err => console.log(err.response.data.errMsg))
   }

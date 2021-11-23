@@ -16,7 +16,7 @@ function Issues(props) {
 
   const [comments, setComments] = useState([])
   const [issues, setIssues] = useState([])
-  const { addUpVote, addDownVote } = useContext(UserContext)
+  const { addUpVote, addDownVote, getIssues, getUserIssues } = useContext(UserContext)
 
   useEffect(() => {
     getUserComments()
@@ -48,11 +48,12 @@ function Issues(props) {
   function deleteUserIssues(id) {
     userAxios.delete(`/api/issue/${id}`)
       .then(res => {
-        
+        console.log(res)
         setIssues(prevState => (
           [...prevState,
           res.data]
         ))
+       
       })
      
       .catch(err => console.log(err.response.data.errMsg))

@@ -50,6 +50,16 @@ function EditEmployee() {
   const toggleEdit = () => {
     setEdit(!edit)
   }
+  const deleteEmployee = (id) => {
+    axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+    setEmployeeList(employeeList.filter((val) => {
+      return val.id != id 
+    }))
+    setEdit(!edit)
+
+    })
+    
+    }
 
 
   const classes = useStyles()
@@ -117,6 +127,8 @@ function EditEmployee() {
              </TextField>
              <Button color="primary"
      variant="outlined"  onClick={()=>{updateEmployee(val.id)}}>SUBMIT EDIT</Button>
+             <Button color="primary"
+     variant="outlined"  onClick={()=>{deleteEmployee(val.id)}}>DELETE EMPLOYEE</Button>
              </>
             )
 }
